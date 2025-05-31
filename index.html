@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>www.actcorp.in</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #eaeaea;
+            margin: 0;
+            padding: 20px;
+        }
+        marquee {
+            display: block;
+            font-size: 1.2em;
+            padding: 10px;
+            background-color: #b00000; /* Darker red */
+            color: white;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+	.button-container {
+ 		 display: flex;
+  		flex-direction: column;
+  		align-items: center;
+ 		 margin-top: 20px;
+		}
+
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            border: none;
+            color: white;
+            font-size: 1.1em;
+            text-decoration: none;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.2s, border 0.2s;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .button:hover {
+            transform: translateY(-2px);
+            border: 2px solid white; /* Add white border on hover */
+        }
+        .button1 {
+            background-color: #4CAF50; /* Green */
+        }
+        .button2 {
+            background-color: #2196F3; /* Blue */
+        }
+        .button3 {
+            background-color: #FF9800; /* Orange */
+        }
+        .button4 {
+            background-color: #9C27B0; /* Purple */
+        }
+        .button5 {
+            background-color: #FF5722; /* Deep Orange */
+        }
+        .button6 {
+            background-color: #3F51B5; /* Indigo */
+        }
+        .icon {
+            margin-right: 10px;
+        }
+        /* Date and Clock Styling - Top Right */
+        .datetime-container {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            color: #333; /* Text color */
+            font-size: 1.1em;
+            text-align: right; /* Ensure right alignment within the container */
+        }
+        .datetime-container p {
+            margin: 0; /* Remove default paragraph margins */
+        }
+    </style>
+</head>
+<body style="background-color: pink;">
+    <img src="ACT Fibernet.png" alt="A picture of a cat sleeping on a couch" width="100" height: auto ">
+
+    <marquee behavior="scroll" direction="left">www.actcorp.in</marquee>
+    <h2>CHN Open Links with Buttons</h2>
+
+    <div class="button-container">
+        <button class="button button2" onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=jqGuQXOyaE63GwUfFfUSS1cfMePQYSlNmz_uEoXlLwBURTJWUVdEVkszNTBTQVFZUEUwTFdRRkZXMS4u', '_blank')">
+            <i class="fas fa-clipboard-list icon"></i>
+            Vendor Attendance
+        </button>
+
+        <button class="button button5" onclick="window.open('https://forms.office.com/Pages/ResponsePage.aspx?id=jqGuQXOyaE63GwUfFfUSS1cfMePQYSlNmz_uEoXlLwBUMTdJV04yQlpHUUNPWTdJU0o1WjgyTE1CRi4u', '_blank')">
+            <i class="fas fa-hammer icon"></i>
+            Vendor Attendance Out Time Entry
+        </button>
+
+        <button class="button button6" onclick="window.open('https://actfibernet-my.sharepoint.com/:x:/g/personal/biswajit_jena_actcorp_in/EbXnmyhlew1AtAp-tFbHIbYBx7sL_AW1Ji573F-5whnFxQ?e=jkaFsS', '_blank')">
+            <i class="fas fa-pastafarian icon"></i>
+            Vendor Attendance Result
+        </button>
+    </div>
+
+    <div class="datetime-container">
+        <p id="date"></p>
+        <p id="clock"></p>
+    </div>
+
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+
+            // Date formatting
+            const dateOptions = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+            const formattedDate = now.toLocaleDateString(undefined, dateOptions); // Use undefined for default locale
+
+            // Time formatting
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
+
+            // Format hours, minutes, and seconds to always have two digits
+            hours = hours < 10 ? "0" + hours : hours;
+            minutes = minutes < 10 ? "0" + minutes : minutes;
+            seconds = seconds < 10 ? "0" + seconds : seconds;
+
+            const formattedTime = `${hours}:${minutes}:${seconds}`;
+
+            document.getElementById('date').textContent = formattedDate;
+            document.getElementById('clock').textContent = formattedTime;
+        }
+
+        // Update the date and clock every second
+        setInterval(updateDateTime, 1000);
+
+        // Initial call to display the date and clock immediately
+        updateDateTime();
+    </script>
+</body>
+</html>
